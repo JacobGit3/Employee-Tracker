@@ -7,20 +7,20 @@ VALUES
   ('Quality Assurance'),
   ('Supervision');
 
-INSERT INTO roles (title, salary)
+INSERT INTO roles (title, salary, department_id)
 VALUES
-  ('Engineer', 100,000),
-  ('Sales', 80,000),
-  ('Finance', 120,000),
-  ('Human Resouces', 70,000),
-  ('Quality Assurance', 60,000),
-  ('Manager', 150,000);
+  ('Engineer', 100000, 1),
+  ('Sales', 80000, 2),
+  ('Finance', 120000, 3),
+  ('Human Resouces', 70000, 4),
+  ('Quality Assurance', 60000, 5),
+  ('Manager', 150000, 6);
 
-INSERT INTO employees (first_name, last_name, manager_id)
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES
-  ('Jacob', 'Liberty', NULL),
-  ('Dave', 'Smith', 1),
-  ('George', 'Davis', 1),
-  ('Samantha', 'Summers', NULL),
-  ('Susan','Williams', 4),
-  ('Albert', 'Macintosh', 4);
+  ('Jacob', 'Liberty', 6, NULL),
+  ('Dave', 'Smith', 1, 1),
+  ('George', 'Davis', 2, 1),
+  ('Samantha', 'Summers', 3,NULL),
+  ('Susan','Williams', 4, 4),
+  ('Albert', 'Macintosh', 5, 4);
