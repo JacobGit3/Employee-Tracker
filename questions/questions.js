@@ -2,8 +2,8 @@ const start = [
   {
     type: 'list',
     name: 'options',
-    message: 'What would you like to view?',
-    choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role']
+    message: 'What would you like to do?',
+    choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role', 'Delete row']
   }
 ]
 
@@ -78,11 +78,30 @@ const updateEmployee = [
   }
 ]
 
+const Delete = [
+  {
+    type: 'list',
+    name: 'table',
+    message: 'What table would you like to delete from?',
+    choices: ['employees', 'roles', 'departments']
+  }
+]
+
+const deleteId  = [
+  {
+    type: 'int',
+    name: 'id',
+    message: 'What row id would you like to delete?'
+  }
+]
+
 module.exports = {
   start,
   Continue,
   department,
   role,
   employee,
-  updateEmployee
+  updateEmployee,
+  Delete,
+  deleteId
 }

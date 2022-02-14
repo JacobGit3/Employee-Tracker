@@ -4,7 +4,7 @@
   "description": "Employee Tracker Readme",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index"
   },
   "repository": {
     "type": "git",

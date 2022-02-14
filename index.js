@@ -21,6 +21,8 @@ function start() {
         addEmployee();
       }else if (data.options === 'Update an employee role') {
         updateEmployee();
+      }else if (data.options === 'Delete row') {
+        deleteRow();
       }else {
         console.log('ERROR: invalid option')
       }
@@ -134,5 +136,55 @@ function Continue() {
     });
 }
 
+function deleteRow() {
+  inquirer.prompt(questions.Delete)
+    .then(function(data){
+      if (data.table === 'employees') {
+        inquirer.prompt(questions.deleteId)
+          .then(function(data){
+              const sql = `DELETE FROM employees WHERE id = ?`;
+              const params = [data.id];
+              db.query(sql, params, (err, rows) => {
+                if (err){
+                  throw err;
+                }else {
+                  console.log('Row Deleted!');
+                }
+                Continue();
+                });
+          })
+      }else if (data.table === 'roles') {
+        inquirer.prompt(questions.deleteId)
+          .then(function(data){
+              const sql = `DELETE FROM roles WHERE id = ?`;
+              const params = [data.id];
+              db.query(sql, params, (err, rows) => {
+                if (err){
+                  throw err;
+                }else {
+                  console.log('Row Deleted!');
+                }
+                Continue();
+                });
+          })
+      }else if (data.table === 'departments') {
+        inquirer.prompt(questions.deleteId)
+          .then(function(data){
+              const sql = `DELETE FROM departments WHERE id = ?`;
+              const params = [data.id];
+              db.query(sql, params, (err, rows) => {
+                if (err){
+                  throw err;
+                }else {
+                  console.log('Row Deleted!');
+                }
+                Continue();
+                });
+          })
+      }else {
+        console.log('error')
+      }
+    })
+}
 // RUN ON LOAD 
 start();
